@@ -4,18 +4,19 @@
 ## Imported all the required library
 ```
 import pandas as pd
-import numpy as np
-from sklearn.cross_validation import train_test_split
-from sklearn.neighbors import KNeighborsClassifier
 import seaborn as sns
 import matplotlib.pyplot as plt
-from sklearn.tree import DecisionTreeClassifier
-
+import numpy as np
+from sklearn import cross_validation
+from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import GradientBoostingRegressor
 ```
 ### Loading and Viewing the data
 
 ~~~
-data=pd.read_csv('housing.csv')
+data=pd.read_csv('train.csv')
 data.head()
 ~~~
 # Data Visualisation
@@ -24,26 +25,76 @@ data.head()
 
 ![alt Survived](https://github.com/rahuljadli/Housing-Price-Prediction/blob/master/screen_shots/heatmap.png)
 
-### Ploting Ocean Proximity
+### Ploting Histogram of Saleprice
 
-![alt Age](https://github.com/rahuljadli/Housing-Price-Prediction/blob/master/screen_shots/OceanHouses.png)
+![alt histogram](https://github.com/rahuljadli/House-Price-Prediction-Advanced-Regression/blob/master/screen_shots/Saleprice%20histogram.png)
 
-### Ploting Lattitude effect on house price
+### Ploting effect of 2nd floor on house price
 
-![alt Sex Survival ](https://github.com/rahuljadli/Housing-Price-Prediction/blob/master/screen_shots/latitude-price.png)
+![alt 2nd floor ](https://github.com/rahuljadli/House-Price-Prediction-Advanced-Regression/blob/master/screen_shots/Effect%20of%202nd%20floor%20on%20saleprice.png)
 
-### Ploting Ocean Median Price
+### Ploting effect of Lot Area on Sale Price
 
-![alt Sex Survival ](https://github.com/rahuljadli/Housing-Price-Prediction/blob/master/screen_shots/ocean-effect-on-median-value.png)
+![alt lot area ](https://github.com/rahuljadli/House-Price-Prediction-Advanced-Regression/blob/master/screen_shots/Effect%20of%20lot%20on%20saleprice.png)
 
-### Ploting Income effect on house price
+### Ploting Basement area on house price
 
-![alt Sex Survival ](https://github.com/rahuljadli/Housing-Price-Prediction/blob/master/screen_shots/Income-effect-on-house-value.png)
+![alt basement area ](https://github.com/rahuljadli/House-Price-Prediction-Advanced-Regression/blob/master/screen_shots/Effect%20of%20basement%20area%20on%20saleprice.png)
 
-## Data filling
+### Ploting effect of MasVnr Area on Sale Price
+
+![alt Masvnr Area ](https://github.com/rahuljadli/House-Price-Prediction-Advanced-Regression/blob/master/screen_shots/Effect%20of%20lot%20on%20saleprice.png)
+
+### Ploting effect of Garage Year on Sale Price
+
+![alt Garage year ](https://github.com/rahuljadli/House-Price-Prediction-Advanced-Regression/blob/master/screen_shots/Effect%20of%20garage%20year.png)
+
+### Ploting effect of Year Renowed on Sale Price
+
+![alt Garage year ](https://github.com/rahuljadli/House-Price-Prediction-Advanced-Regression/blob/master/screen_shots/Effect%20of%20year.png)
+
+### Ploting effect of 1st floor on Sale Price
+
+![alt 1st floor ](https://github.com/rahuljadli/House-Price-Prediction-Advanced-Regression/blob/master/screen_shots/effect%20of%201st%20floor.png)
+
+### Ploting effect of  Year Build on Sale Price
+
+![alt  Year Build ](https://github.com/rahuljadli/House-Price-Prediction-Advanced-Regression/blob/master/screen_shots/effect%20of%20year%20build.png)
+
+### Ploting effect of  Basement area on Sale Price
+
+![alt Basement area ](https://github.com/rahuljadli/House-Price-Prediction-Advanced-Regression/blob/master/screen_shots/efffec%20of%20bsmt%20area.png)
+
+### Ploting effect of  Grive area on Sale Price
+
+![alt Grive area ](https://github.com/rahuljadli/House-Price-Prediction-Advanced-Regression/blob/master/screen_shots/effect%20of%20grive.png)
+
+### Ploting effect of  Garage area on Sale Price
+
+![alt Garage area ](https://github.com/rahuljadli/House-Price-Prediction-Advanced-Regression/blob/master/screen_shots/effect%20of%20garage%20area.png)
+
+### Ploting effect of  Cars on Sale Price
+
+![alt Cars ](https://github.com/rahuljadli/House-Price-Prediction-Advanced-Regression/blob/master/screen_shots/garagecar.png)
+
+### Ploting effect of  Total rooms on Sale Price
+
+![alt Total rooms](https://github.com/rahuljadli/House-Price-Prediction-Advanced-Regression/blob/master/screen_shots/Total%20rooms.png)
+
+### Ploting effect of  Overall quality on Sale Price
+
+![alt Overall quality ](https://github.com/rahuljadli/House-Price-Prediction-Advanced-Regression/blob/master/screen_shots/overall%20quality.png)
+
+### Ploting effect of  Fireplaces on Sale Price
+
+![alt Cars ](https://github.com/rahuljadli/House-Price-Prediction-Advanced-Regression/blob/master/screen_shots/Fireplaces.png)
+
+## Converting Categorical data into Continous using Label Encoder
 
 ~~~
-housing_mean=housing_data.fillna(housing_data['total_bedrooms'].mean())
+df.GarageCond=le.fit_transform(df.GarageCond)
+df.GarageYrBlt=le.fit_transform(df.GarageYrBlt)
+df.GarageFinish=le.fit_transform(df.GarageFinish)
 ~~~
 
 # Using Different Model's 
