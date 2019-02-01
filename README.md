@@ -125,3 +125,4 @@ rmse = np.sqrt(mean_squared_error(prediction, y_test))
 rmse
 ~~~
 ## Got RMSE value of 69140.009
+# Here only shown one algorithm in the notebook all other algorithm are used there. 
